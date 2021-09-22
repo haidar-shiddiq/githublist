@@ -40,20 +40,19 @@ public class MainActivity extends Activity {
         });
     }
 
-    private void showSelectedChar(Charv charv) {
-        Toast.makeText(this, "Menampilkan Karakter " + charv.getName(), Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, DetailActivity.class);
-        intent.putExtra("charuname", charv.getUsername());
-        intent.putExtra("charnamee", charv.getName());
-        intent.putExtra("charava", charv.getAvatar());
-        startActivity(intent);
-    }
+//    private void showSelectedChar(Charv charv) {
+//        Toast.makeText(this, "Menampilkan Karakter " + charv.getName(), Toast.LENGTH_SHORT).show();
+//        Intent intent = new Intent(this, DetailActivity.class);
+//        intent.putExtra("charuname", charv.getUsername());
+//        intent.putExtra("charnamee", charv.getName());
+//        intent.putExtra("charava", charv.getAvatar());
+//        startActivity(intent);
+//    }
 
     private ArrayList<Charv> getUserData() {
         String[] datauname = getResources().getStringArray(R.array.username);
         String[] datanamee = getResources().getStringArray(R.array.name);
         TypedArray datava = getResources().obtainTypedArray(R.array.avatar);
-        moveWithObjectIntent.putParcelableArrayListExtra(parcelnih,Charv);
         ArrayList<Charv> list = new ArrayList<>();
         for (int pos = 0; pos < datauname.length; pos++) {
             Charv charv = new Charv();
@@ -70,12 +69,12 @@ public class MainActivity extends Activity {
         ListCharAdapter listHeroAdapter = new ListCharAdapter(list);
         rvChar.setAdapter(listHeroAdapter);
 
-        listHeroAdapter.setOnItemClickCallback(new ListCharAdapter.OnItemClickCallback() {
-            @Override
-            public void onItemClicked(Charv data) {
-                showSelectedChar(data);
-            }
-        });
+//        listHeroAdapter.setOnItemClickCallback(new ListCharAdapter.OnItemClickCallback() {
+//            @Override
+//            public void onItemClicked(Charv data) {
+//                showSelectedChar(data);
+//            }
+//        });
     }
 
     public void onBackPressed() {

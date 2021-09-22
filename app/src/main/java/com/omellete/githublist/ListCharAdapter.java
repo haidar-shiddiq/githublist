@@ -1,5 +1,6 @@
 package com.omellete.githublist;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,8 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 
 public class ListCharAdapter extends RecyclerView.Adapter<ListCharAdapter.ListViewHolder> {
@@ -40,7 +39,11 @@ public class ListCharAdapter extends RecyclerView.Adapter<ListCharAdapter.ListVi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onItemClickCallback.onItemClicked(listChar.get(holder.getAdapterPosition()));
+//                onItemClickCallback.onItemClicked(listChar.get(holder.getAdapterPosition()));
+
+                Intent intent = new Intent(v.getContext(), DetailActivity.class);
+                intent.putExtra(DetailActivity.PARCELNIH, charv);
+                v.getContext().startActivity(intent);
             }
         });
     }

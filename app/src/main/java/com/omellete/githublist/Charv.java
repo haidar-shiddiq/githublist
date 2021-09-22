@@ -1,6 +1,9 @@
 package com.omellete.githublist;
 
-public class Charv {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Charv implements Parcelable {
     private String username;
     private String name;
     private int avatar;
@@ -9,6 +12,50 @@ public class Charv {
     private int repository;
     private int follower;
     private int following;
+
+    protected Charv(Parcel in) {
+        username = in.readString();
+        name = in.readString();
+        avatar = in.readInt();
+        company = in.readString();
+        location = in.readString();
+        repository = in.readInt();
+        follower = in.readInt();
+        following = in.readInt();
+    }
+
+    public Charv() {
+
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(username);
+        dest.writeString(name);
+        dest.writeInt(avatar);
+        dest.writeString(company);
+        dest.writeString(location);
+        dest.writeInt(repository);
+        dest.writeInt(follower);
+        dest.writeInt(following);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Charv> CREATOR = new Creator<Charv>() {
+        @Override
+        public Charv createFromParcel(Parcel in) {
+            return new Charv(in);
+        }
+
+        @Override
+        public Charv[] newArray(int size) {
+            return new Charv[size];
+        }
+    };
 
     public String getUsername() {
         return username;

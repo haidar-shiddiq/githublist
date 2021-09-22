@@ -11,19 +11,21 @@ import com.bumptech.glide.Glide;
 
 public class DetailActivity extends Activity {
     Button back;
+    public static final String PARCELNIH = "parcelnih";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        TextView name = findViewById(R.id.name);
-        TextView detail = findViewById(R.id.detail);
+        TextView uname = findViewById(R.id.name);
+        TextView name = findViewById(R.id.detail);
         ImageView image = findViewById(R.id.image);
         back = (Button) findViewById(R.id.back);
 
-        name.setText (getIntent().getStringExtra("charuname"));
-        detail.setText (getIntent().getStringExtra("charname"));
-        int imageurl = getIntent().getIntExtra("charava",0);
+        Charv charv = getIntent().getParcelableExtra(PARCELNIH);
+        uname.setText (charv.getUsername());
+        name.setText(charv.getName());
+        int imageurl = charv.getAvatar();
         Glide.with(this)
                 .asBitmap()
                 .load(imageurl)
