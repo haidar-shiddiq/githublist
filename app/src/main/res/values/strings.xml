@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">githublist</string>
-    <string name="char_name">Nama Karakter</string>
-    <string name="detail">Detail</string>
+    <string name="app_name">Github User</string>
+    <string name="char_name">uname</string>
+    <string name="name">name</string>
 
     <string-array name="username">
         <item>JakeWharton</item>

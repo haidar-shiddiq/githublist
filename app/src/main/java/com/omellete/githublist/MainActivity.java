@@ -1,22 +1,15 @@
 package com.omellete.githublist;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.app.Activity;
-import android.content.Intent;
-import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
     private RecyclerView rvChar;
     private ArrayList<Charv> list = new ArrayList<>();
-    Button profil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,37 +21,29 @@ public class MainActivity extends Activity {
 
         list.addAll(getUserData());
         showRecyclerList();
-
-        profil = (Button) findViewById(R.id.profil);
-        profil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                // TODO Auto-generated method stub
-                Intent inte = new Intent(MainActivity.this, biodata.class);
-                startActivity(inte);
-            }
-        });
     }
 
-//    private void showSelectedChar(Charv charv) {
-//        Toast.makeText(this, "Menampilkan Karakter " + charv.getName(), Toast.LENGTH_SHORT).show();
-//        Intent intent = new Intent(this, DetailActivity.class);
-//        intent.putExtra("charuname", charv.getUsername());
-//        intent.putExtra("charnamee", charv.getName());
-//        intent.putExtra("charava", charv.getAvatar());
-//        startActivity(intent);
-//    }
-
     private ArrayList<Charv> getUserData() {
-        String[] datauname = getResources().getStringArray(R.array.username);
-        String[] datanamee = getResources().getStringArray(R.array.name);
-        TypedArray datava = getResources().obtainTypedArray(R.array.avatar);
+        String[] unamex = getResources().getStringArray(R.array.username);
+        String[] namex = getResources().getStringArray(R.array.name);
+        TypedArray avatx = getResources().obtainTypedArray(R.array.avatar);
+        String[] locationx = getResources().getStringArray(R.array.location);
+        String[] compx = getResources().getStringArray(R.array.company);
+        String[] followerx = getResources().getStringArray(R.array.followers);
+        String[] followingx = getResources().getStringArray(R.array.following);
+        String[] repox = getResources().getStringArray(R.array.repository);
+
         ArrayList<Charv> list = new ArrayList<>();
-        for (int pos = 0; pos < datauname.length; pos++) {
+        for (int pos = 0; pos < unamex.length; pos++) {
             Charv charv = new Charv();
-            charv.setUsername(datauname[pos]);
-            charv.setName(datanamee[pos]);
-            charv.setAvatar(datava.getResourceId(pos, -1));
+            charv.setUsername(unamex[pos]);
+            charv.setName(namex[pos]);
+            charv.setAvatar(avatx.getResourceId(pos, -1));
+            charv.setCompany(compx[pos]);
+            charv.setLocation(locationx[pos]);
+            charv.setFollower(followerx[pos]);
+            charv.setFollowing(followingx[pos]);
+            charv.setRepository(repox[pos]);
             list.add(charv);
         }
         return list;
@@ -68,13 +53,6 @@ public class MainActivity extends Activity {
         rvChar.setLayoutManager(new LinearLayoutManager(this));
         ListCharAdapter listHeroAdapter = new ListCharAdapter(list);
         rvChar.setAdapter(listHeroAdapter);
-
-//        listHeroAdapter.setOnItemClickCallback(new ListCharAdapter.OnItemClickCallback() {
-//            @Override
-//            public void onItemClicked(Charv data) {
-//                showSelectedChar(data);
-//            }
-//        });
     }
 
     public void onBackPressed() {

@@ -13,10 +13,6 @@ import java.util.ArrayList;
 public class ListCharAdapter extends RecyclerView.Adapter<ListCharAdapter.ListViewHolder> {
 
     private ArrayList<Charv> listChar;
-    private OnItemClickCallback onItemClickCallback;
-    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback;
-    }
 
     public ListCharAdapter(ArrayList<Charv> list) {
         this.listChar = list;
@@ -39,8 +35,6 @@ public class ListCharAdapter extends RecyclerView.Adapter<ListCharAdapter.ListVi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                onItemClickCallback.onItemClicked(listChar.get(holder.getAdapterPosition()));
-
                 Intent intent = new Intent(v.getContext(), DetailActivity.class);
                 intent.putExtra(DetailActivity.PARCELNIH, charv);
                 v.getContext().startActivity(intent);
@@ -48,9 +42,6 @@ public class ListCharAdapter extends RecyclerView.Adapter<ListCharAdapter.ListVi
         });
     }
 
-    public interface OnItemClickCallback {
-        void onItemClicked(Charv data);
-    }
 
     @Override
     public int getItemCount() {

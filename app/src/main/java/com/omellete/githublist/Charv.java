@@ -9,9 +9,9 @@ public class Charv implements Parcelable {
     private int avatar;
     private String company;
     private String location;
-    private int repository;
-    private int follower;
-    private int following;
+    private String repository;
+    private String follower;
+    private String following;
 
     protected Charv(Parcel in) {
         username = in.readString();
@@ -19,9 +19,9 @@ public class Charv implements Parcelable {
         avatar = in.readInt();
         company = in.readString();
         location = in.readString();
-        repository = in.readInt();
-        follower = in.readInt();
-        following = in.readInt();
+        repository = in.readString();
+        follower = in.readString();
+        following = in.readString();
     }
 
     public Charv() {
@@ -35,9 +35,9 @@ public class Charv implements Parcelable {
         dest.writeInt(avatar);
         dest.writeString(company);
         dest.writeString(location);
-        dest.writeInt(repository);
-        dest.writeInt(follower);
-        dest.writeInt(following);
+        dest.writeString(repository);
+        dest.writeString(follower);
+        dest.writeString(following);
     }
 
     @Override
@@ -97,27 +97,27 @@ public class Charv implements Parcelable {
         this.location = location;
     }
 
-    public int getRepository() {
+    public String getRepository() {
         return repository;
     }
 
-    public void setRepository(int repository) {
+    public void setRepository(String repository) {
         this.repository = repository;
     }
 
-    public int getFollower() {
+    public String getFollower() {
         return follower;
     }
 
-    public void setFollower(int follower) {
+    public void setFollower(String follower) {
         this.follower = follower;
     }
 
-    public int getFollowing() {
+    public String getFollowing() {
         return following;
     }
 
-    public void setFollowing(int following) {
+    public void setFollowing(String following) {
         this.following = following;
     }
 }
