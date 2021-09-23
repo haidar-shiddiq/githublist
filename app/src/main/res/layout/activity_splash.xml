@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".splash"
-    android:background="#4D3211"
+    android:background="#959595"
     android:gravity="center">
 
     <ImageView
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:src="@drawable/ic_launcher_background">
+        android:src="@drawable/logogithub">
     </ImageView>
 
 </LinearLayout>
