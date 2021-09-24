@@ -4,14 +4,13 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logoapp"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logoapp_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Mystyle">
+        android:theme="@style/Theme.Githublist">
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".DetailActivity" />
-        <activity android:name=".biodata" />
         <activity android:name=".splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

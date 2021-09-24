@@ -1,7 +1,13 @@
 <resources>
-    <string name="app_name">Github User</string>
+    <string name="app_name">Github User List</string>
     <string name="char_name">uname</string>
     <string name="name">name</string>
+    <string name="repository">Repository</string>
+    <string name="follower">Follower</string>
+    <string name="following">Following</string>
+    <string name="company">Company</string>
+    <string name="location">Location</string>
+
 
     <string-array name="username">
         <item>JakeWharton</item>

@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".splash"
-    android:background="#959595"
-    android:gravity="center">
+    android:background="#043353"
+    android:gravity="center"
+    tools:context=".splash">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:src="@drawable/logogithub">
-    </ImageView>
+        android:src="@drawable/logogithub" />
 
 </LinearLayout>

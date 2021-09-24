@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         return list;
     }
 
-    private void showRecyclerList(){
+    private void showRecyclerList() {
         rvChar.setLayoutManager(new LinearLayoutManager(this));
         ListCharAdapter listHeroAdapter = new ListCharAdapter(list);
         rvChar.setAdapter(listHeroAdapter);

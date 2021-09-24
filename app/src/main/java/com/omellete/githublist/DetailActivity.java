@@ -14,7 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class DetailActivity extends AppCompatActivity {
     public static final String PARCELNIH = "parcelnih";
-    public String isiShare;
+    public String nameShare,unameShare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,8 @@ public class DetailActivity extends AppCompatActivity {
         FloatingActionButton share = findViewById(R.id.btnShare);
 
         Charv charv = getIntent().getParcelableExtra(PARCELNIH);
-        isiShare = charv.getName();
+        nameShare = charv.getName();
+        unameShare = charv.getUsername();
         uname.setText (charv.getUsername());
         name.setText(charv.getName());
         company.setText(charv.getCompany());
@@ -53,7 +54,7 @@ public class DetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
-                String shareBody = "Hey! Im viewing "+isiShare+" on Github User List!";
+                String shareBody = "Hey! Im viewing "+nameShare+" ("+unameShare+")"+" on Github User List!";
                 String shareSub = "Hey! Im using Github User List!";
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);

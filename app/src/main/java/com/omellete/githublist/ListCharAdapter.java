@@ -42,12 +42,10 @@ public class ListCharAdapter extends RecyclerView.Adapter<ListCharAdapter.ListVi
         });
     }
 
-
     @Override
     public int getItemCount() {
         return listChar.size();
     }
-
     public class ListViewHolder extends RecyclerView.ViewHolder {
         ImageView avatarr;
         TextView uname,namee;
