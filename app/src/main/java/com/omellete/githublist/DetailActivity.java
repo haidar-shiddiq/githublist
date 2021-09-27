@@ -7,21 +7,21 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.Objects;
+
 public class DetailActivity extends AppCompatActivity {
-    public static final String PARCELNIH = "parcelnih";
+    public static final String PARCEL_NIH = "parcel_nih";
     public String nameShare,unameShare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        ActionBar balik = getSupportActionBar();
-        balik.setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         TextView uname = findViewById(R.id.uname);
         TextView name = findViewById(R.id.name);
@@ -33,7 +33,7 @@ public class DetailActivity extends AppCompatActivity {
         TextView repo = findViewById(R.id.repo);
         FloatingActionButton share = findViewById(R.id.btnShare);
 
-        Charv charv = getIntent().getParcelableExtra(PARCELNIH);
+        Charv charv = getIntent().getParcelableExtra(PARCEL_NIH);
         nameShare = charv.getName();
         unameShare = charv.getUsername();
         uname.setText (charv.getUsername());
@@ -43,10 +43,10 @@ public class DetailActivity extends AppCompatActivity {
         repo.setText(charv.getRepository());
         follower.setText(charv.getFollower());
         following.setText(charv.getFollowing());
-        int imageurl = charv.getAvatar();
+        int imageUrl = charv.getAvatar();
         Glide.with(this)
                 .asBitmap()
-                .load(imageurl)
+                .load(imageUrl)
                 .into(image);
 
         share.setOnClickListener(new View.OnClickListener() {

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class ListCharAdapter extends RecyclerView.Adapter<ListCharAdapter.ListViewHolder> {
 
-    private ArrayList<Charv> listChar;
+    private final ArrayList<Charv> listChar;
 
     public ListCharAdapter(ArrayList<Charv> list) {
         this.listChar = list;
@@ -36,7 +36,7 @@ public class ListCharAdapter extends RecyclerView.Adapter<ListCharAdapter.ListVi
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), DetailActivity.class);
-                intent.putExtra(DetailActivity.PARCELNIH, charv);
+                intent.putExtra(DetailActivity.PARCEL_NIH, charv);
                 v.getContext().startActivity(intent);
             }
         });
@@ -46,9 +46,9 @@ public class ListCharAdapter extends RecyclerView.Adapter<ListCharAdapter.ListVi
     public int getItemCount() {
         return listChar.size();
     }
-    public class ListViewHolder extends RecyclerView.ViewHolder {
-        ImageView avatarr;
-        TextView uname,namee;
+    public static class ListViewHolder extends RecyclerView.ViewHolder {
+        final ImageView avatarr;
+        final TextView uname,namee;
         public ListViewHolder(@NonNull View itemView) {
             super(itemView);
             avatarr = itemView.findViewById(R.id.avatar);

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView rvChar;
-    private ArrayList<Charv> list = new ArrayList<>();
+    private final ArrayList<Charv> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         String[] followerx = getResources().getStringArray(R.array.followers);
         String[] followingx = getResources().getStringArray(R.array.following);
         String[] repox = getResources().getStringArray(R.array.repository);
+        avatx.recycle();
 
         ArrayList<Charv> list = new ArrayList<>();
         for (int pos = 0; pos < unamex.length; pos++) {

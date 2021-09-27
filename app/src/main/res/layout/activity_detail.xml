@@ -173,6 +173,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="30dp"
+                    android:contentDescription="@string/share_button"
                     android:src="@drawable/share"
                     app:fabCustomSize="48dp"
                     app:layout_constraintEnd_toEndOf="@+id/textView"
