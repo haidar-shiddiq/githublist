@@ -6,8 +6,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -33,17 +35,17 @@ public class DetailActivity extends AppCompatActivity {
         TextView repo = findViewById(R.id.repo);
         FloatingActionButton share = findViewById(R.id.btnShare);
 
-        Charv charv = getIntent().getParcelableExtra(PARCEL_NIH);
-        nameShare = charv.getName();
-        unameShare = charv.getUsername();
-        uname.setText (charv.getUsername());
-        name.setText(charv.getName());
-        company.setText(charv.getCompany());
-        location.setText(charv.getLocation());
-        repo.setText(charv.getRepository());
-        follower.setText(charv.getFollower());
-        following.setText(charv.getFollowing());
-        int imageUrl = charv.getAvatar();
+        GithubUser githubUser = getIntent().getParcelableExtra(PARCEL_NIH);
+        nameShare = githubUser.getName();
+        unameShare = githubUser.getUsername();
+        uname.setText (githubUser.getUsername());
+        name.setText(githubUser.getName());
+        company.setText(githubUser.getCompany());
+        location.setText(githubUser.getLocation());
+        repo.setText(githubUser.getRepository());
+        follower.setText(githubUser.getFollower());
+        following.setText(githubUser.getFollowing());
+        int imageUrl = githubUser.getAvatar();
         Glide.with(this)
                 .asBitmap()
                 .load(imageUrl)
@@ -52,12 +54,12 @@ public class DetailActivity extends AppCompatActivity {
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
                 String shareBody = "Hey! Im viewing "+nameShare+" ("+unameShare+")"+" on Github User List!";
                 String shareSub = "Hey! Im using Github User List!";
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
-                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, shareSub);
+                sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
                 startActivity(Intent.createChooser(sharingIntent, "Share using"));
             }
         });

@@ -1,15 +1,17 @@
 package com.omellete.githublist;
 
+import android.content.res.TypedArray;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.content.res.TypedArray;
-import android.os.Bundle;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView rvChar;
-    private final ArrayList<Charv> list = new ArrayList<>();
+    private final ArrayList<GithubUser> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         showRecyclerList();
     }
 
-    private ArrayList<Charv> getUserData() {
+    private ArrayList<GithubUser> getUserData() {
         String[] unamex = getResources().getStringArray(R.array.username);
         String[] namex = getResources().getStringArray(R.array.name);
         TypedArray avatx = getResources().obtainTypedArray(R.array.avatar);
@@ -32,21 +34,21 @@ public class MainActivity extends AppCompatActivity {
         String[] followerx = getResources().getStringArray(R.array.followers);
         String[] followingx = getResources().getStringArray(R.array.following);
         String[] repox = getResources().getStringArray(R.array.repository);
-        avatx.recycle();
 
-        ArrayList<Charv> list = new ArrayList<>();
+        ArrayList<GithubUser> list = new ArrayList<>();
         for (int pos = 0; pos < unamex.length; pos++) {
-            Charv charv = new Charv();
-            charv.setUsername(unamex[pos]);
-            charv.setName(namex[pos]);
-            charv.setAvatar(avatx.getResourceId(pos, -1));
-            charv.setCompany(compx[pos]);
-            charv.setLocation(locationx[pos]);
-            charv.setFollower(followerx[pos]);
-            charv.setFollowing(followingx[pos]);
-            charv.setRepository(repox[pos]);
-            list.add(charv);
+            GithubUser githubUser = new GithubUser();
+            githubUser.setUsername(unamex[pos]);
+            githubUser.setName(namex[pos]);
+            githubUser.setAvatar(avatx.getResourceId(pos, -1));
+            githubUser.setCompany(compx[pos]);
+            githubUser.setLocation(locationx[pos]);
+            githubUser.setFollower(followerx[pos]);
+            githubUser.setFollowing(followingx[pos]);
+            githubUser.setRepository(repox[pos]);
+            list.add(githubUser);
         }
+        avatx.recycle();
         return list;
     }
 

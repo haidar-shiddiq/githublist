@@ -3,7 +3,7 @@ package com.omellete.githublist;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Charv implements Parcelable {
+public class GithubUser implements Parcelable {
     private String username;
     private String name;
     private int avatar;
@@ -13,7 +13,7 @@ public class Charv implements Parcelable {
     private String follower;
     private String following;
 
-    protected Charv(Parcel in) {
+    protected GithubUser(Parcel in) {
         username = in.readString();
         name = in.readString();
         avatar = in.readInt();
@@ -24,7 +24,7 @@ public class Charv implements Parcelable {
         following = in.readString();
     }
 
-    public Charv() {
+    public GithubUser() {
 
     }
 
@@ -45,15 +45,15 @@ public class Charv implements Parcelable {
         return 0;
     }
 
-    public static final Creator<Charv> CREATOR = new Creator<Charv>() {
+    public static final Creator<GithubUser> CREATOR = new Creator<GithubUser>() {
         @Override
-        public Charv createFromParcel(Parcel in) {
-            return new Charv(in);
+        public GithubUser createFromParcel(Parcel in) {
+            return new GithubUser(in);
         }
 
         @Override
-        public Charv[] newArray(int size) {
-            return new Charv[size];
+        public GithubUser[] newArray(int size) {
+            return new GithubUser[size];
         }
     };
 
